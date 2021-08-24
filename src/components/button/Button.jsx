@@ -6,9 +6,9 @@ export const BUTTON_VARIANTS = {
 };
 
 //TODO: Button inner text can be Text component
-const Button = ({ variant, text, type, onClick }) => {
+const Button = ({ variant, text, type, onClick, style }) => {
   return (
-    <StyledButton onClick={onClick} type={type} variant={variant}>
+    <StyledButton style={style} onClick={onClick} type={type} variant={variant}>
       {text}
     </StyledButton>
   );

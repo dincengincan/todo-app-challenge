@@ -14,7 +14,8 @@ p,
 h1,
 h2,
 h3,
-input {
+input,
+button {
   margin: 0;
   padding: 0;
 }
