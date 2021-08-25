@@ -13,7 +13,7 @@ const TodoItem = ({
     <Container>
       <StyledTodo
         overline={todo.completed}
-        error={new Date(todo.deadline) < new Date()}
+        error={new Date(todo.deadline).getDay() < new Date().getDay()}
         onClick={() => onTodoComplete(todo)}
       >
         {children}
