@@ -4,10 +4,19 @@ import { BUTTON_COLORS } from '../../constants/colors';
 import { BUTTON_VARIANTS } from './Button';
 
 export const StyledButton = styled.button`
-  ${({ variant }) =>
-    variant === BUTTON_VARIANTS.PRIMARY
-      ? `background-color: ${BUTTON_COLORS.PRIMARY}; color: white;`
-      : `background-color: ${BUTTON_COLORS.SECONDARY}; color: white;`}
+  color: white;
+  ${({ variant }) => {
+    if (variant === BUTTON_VARIANTS.PRIMARY) {
+      return `background-color: ${BUTTON_COLORS.PRIMARY};`;
+    }
+    if (variant === BUTTON_VARIANTS.SECONDARY) {
+      return `background-color: ${BUTTON_COLORS.SECONDARY};`;
+    }
+  }}
+
+  ${({ disabled }) =>
+    disabled &&
+    `background-color: ${BUTTON_COLORS.DISABLED}; pointer-events: none;`}
 
   border: none;
   padding: 10px 15px;
