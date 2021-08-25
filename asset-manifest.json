@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/todo-app-challenge/static/css/main.2b1e844b.chunk.css",
+    "main.js": "/todo-app-challenge/static/js/main.982fb6a4.chunk.js",
+    "main.js.map": "/todo-app-challenge/static/js/main.982fb6a4.chunk.js.map",
+    "runtime-main.js": "/todo-app-challenge/static/js/runtime-main.d4998138.js",
+    "runtime-main.js.map": "/todo-app-challenge/static/js/runtime-main.d4998138.js.map",
+    "static/js/2.47f935ac.chunk.js": "/todo-app-challenge/static/js/2.47f935ac.chunk.js",
+    "static/js/2.47f935ac.chunk.js.map": "/todo-app-challenge/static/js/2.47f935ac.chunk.js.map",
+    "static/js/3.f6c95609.chunk.js": "/todo-app-challenge/static/js/3.f6c95609.chunk.js",
+    "static/js/3.f6c95609.chunk.js.map": "/todo-app-challenge/static/js/3.f6c95609.chunk.js.map",
+    "index.html": "/todo-app-challenge/index.html",
+    "static/css/main.2b1e844b.chunk.css.map": "/todo-app-challenge/static/css/main.2b1e844b.chunk.css.map",
+    "static/js/2.47f935ac.chunk.js.LICENSE.txt": "/todo-app-challenge/static/js/2.47f935ac.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d4998138.js",
+    "static/js/2.47f935ac.chunk.js",
+    "static/css/main.2b1e844b.chunk.css",
+    "static/js/main.982fb6a4.chunk.js"
+  ]
+}
