@@ -6,7 +6,7 @@ User can take actions such as adding, removing, editing todo as well as marking 
 
 ## Demo
 
-Use the app online at https://dincengincan.github.io/todo-app-react-redux/
+Use the app online at https://dincengincan.github.io/todo-app-challenge/
 
 ![todo GIF](demo/todo.gif)
 
