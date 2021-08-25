@@ -10,12 +10,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { FETCH_URL } from './constants/general';
 import { ACTIONS } from './store';
 import Modal from './components/modal/Modal';
-import Textfield from './components/textfield/Textfield';
 import EditTodoContent from './components/edit-todo-content/EditTodoContent';
 
 function App() {
   const dispatch = useDispatch();
-  const [showEditModal, setShowEditModal] = useState(true);
+  const [selectedTodo, setSelectedTodo] = useState();
 
   const handleTodoRemove = async (todoId) => {
     const settings = {
@@ -32,12 +31,13 @@ function App() {
     }
   };
 
-  const handleTodoAdd = async (todoInput) => {
+  const handleTodoAdd = async (todoInput, deadline) => {
     const settings = {
       method: 'POST',
       body: JSON.stringify({
         label: todoInput,
         checked: false,
+        deadline,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -76,19 +76,44 @@ function App() {
     }
   };
 
-  const handleTodoEdit = async (todoId) => {
-    setShowEditModal(true);
+  const handleModalShow = (receivedTodo) => {
+    console.log(receivedTodo);
+    setSelectedTodo(receivedTodo);
+  };
+
+  const handleTodoEdit = async ({ todo, date }) => {
+    console.log();
     const settings = {
       method: 'PUT',
       body: JSON.stringify({
-        completed: true,
+        label: todo,
+        deadline: date,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     };
     try {
-      const fetchResponse = await fetch(`${FETCH_URL}/${todoId}`, settings);
+      const fetchResponse = await fetch(
+        `${FETCH_URL}/${selectedTodo.id}`,
+        settings
+      );
+      const data = await fetchResponse.json();
+      if (data) {
+        fetchTodos();
+        setSelectedTodo(null);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //TODO: Multiple deletion is not working
+  const handleTodoReset = async () => {
+    const settings = {
+      method: 'DELETE',
+    };
+    try {
+      const fetchResponse = await fetch(`${FETCH_URL}/${3},${5}`, settings);
       const data = await fetchResponse.json();
       if (data) {
         fetchTodos();
@@ -113,19 +138,24 @@ function App() {
     fetchTodos();
   }, [fetchTodos]);
 
+  const handleModalClose = () => setSelectedTodo(null);
+
   return (
     <>
       <Layout>
-        <AddTodo addTodo={handleTodoAdd} />
+        <AddTodo addTodo={handleTodoAdd} onReset={handleTodoReset} />
         <TodoList
-          onTodoEdit={handleTodoEdit}
+          onTodoEdit={handleModalShow}
           onTodoComplete={handleTodoComplete}
           onTodoRemove={handleTodoRemove}
         />
       </Layout>
-      {showEditModal && (
+      {selectedTodo?.id && (
         <Modal>
-          <EditTodoContent />
+          <EditTodoContent
+            onCancel={handleModalClose}
+            onSubmit={handleTodoEdit}
+          />
         </Modal>
       )}
     </>
