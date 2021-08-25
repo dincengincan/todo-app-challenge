@@ -5,12 +5,19 @@ import { BUTTON_VARIANTS } from './Button';
 
 export const StyledButton = styled.button`
   color: white;
-  ${({ variant }) => {
+  ${({ variant, isSelected }) => {
     if (variant === BUTTON_VARIANTS.PRIMARY) {
       return `background-color: ${BUTTON_COLORS.PRIMARY};`;
     }
     if (variant === BUTTON_VARIANTS.SECONDARY) {
       return `background-color: ${BUTTON_COLORS.SECONDARY};`;
+    }
+    if (variant === BUTTON_VARIANTS.FILTER) {
+      if (isSelected)
+        return `color: grey; border: solid 1px #d6d6d6; border-radius: 40px; background-color: ${BUTTON_COLORS.FILTER};`;
+      else {
+        return `opacity:0.65; border: solid 1px #d6d6d6; border-radius: 40px; background-color: ${BUTTON_COLORS.FILTER};`;
+      }
     }
   }}
 
