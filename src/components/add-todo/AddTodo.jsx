@@ -8,6 +8,7 @@ import { BUTTON_VARIANTS } from '../button/Button';
 import Checkbox from '../checkbox/Checkbox';
 import Row from '../row/Row';
 import Datefield from '../datefield/Datefield';
+import FilterButtons from '../filter-buttons/FilterButtons';
 
 const AddTodo = ({ addTodo, onReset }) => {
   const todos = useSelector((state) => state.todos);
@@ -29,6 +30,9 @@ const AddTodo = ({ addTodo, onReset }) => {
   return (
     <Row style={{ display: 'flex', flexDirection: 'column' }}>
       <Row>
+        <FilterButtons />
+      </Row>
+      <Row>
         <form onSubmit={handleFormSubmit}>
           <Textfield
             placeholder="What needs to be done?"
@@ -42,7 +46,7 @@ const AddTodo = ({ addTodo, onReset }) => {
             variant={BUTTON_VARIANTS.PRIMARY}
           />
           <Button
-            disabled={!todos.length}
+            disabled={!todos?.length}
             onClick={onReset}
             text="Remove"
             variant={BUTTON_VARIANTS.PRIMARY}
