@@ -6,7 +6,6 @@ export const BUTTON_VARIANTS = {
   FILTER: 'FILTER',
 };
 
-//TODO: Button inner text can be Text component
 const Button = ({
   variant,
   text,

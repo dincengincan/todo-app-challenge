@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { useSelector } from 'react-redux';
-
 import Textfield from '../textfield/Textfield';
 import Button from '../button/Button';
 import { BUTTON_VARIANTS } from '../button/Button';
@@ -10,9 +8,7 @@ import Row from '../row/Row';
 import Datefield from '../datefield/Datefield';
 import FilterButtons from '../filter-buttons/FilterButtons';
 
-const AddTodo = ({ addTodo, onReset }) => {
-  const todos = useSelector((state) => state.todos);
-
+const AddTodo = ({ addTodo }) => {
   const [todoInput, setTodoInput] = useState('');
   const [deadline, setDeadline] = useState('');
   const [showDeadline, setShowDeadline] = useState(false);
@@ -45,12 +41,6 @@ const AddTodo = ({ addTodo, onReset }) => {
             text="Add"
             variant={BUTTON_VARIANTS.PRIMARY}
           />
-          <Button
-            disabled={!todos?.length}
-            onClick={onReset}
-            text="Remove"
-            variant={BUTTON_VARIANTS.PRIMARY}
-          />
         </form>
       </Row>
 
@@ -62,6 +52,7 @@ const AddTodo = ({ addTodo, onReset }) => {
         />
         {showDeadline && (
           <Datefield
+            style={{ marginLeft: '10px' }}
             value={deadline}
             onChange={(e) => setDeadline(e.target.value)}
           />
