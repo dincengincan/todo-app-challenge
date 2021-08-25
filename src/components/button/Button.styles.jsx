@@ -5,6 +5,7 @@ import { BUTTON_VARIANTS } from './Button';
 
 export const StyledButton = styled.button`
   color: white;
+  outline: none;
   ${({ variant, isSelected }) => {
     if (variant === BUTTON_VARIANTS.PRIMARY) {
       return `background-color: ${BUTTON_COLORS.PRIMARY};`;

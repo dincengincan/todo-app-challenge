@@ -6,6 +6,7 @@ export const StyledInput = styled.input`
   font-size: 1em;
   border: solid 1px #d6d6d6;
   border-radius: 20px;
+  outline: none;
 
   &:hover {
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
