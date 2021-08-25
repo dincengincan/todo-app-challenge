@@ -39,7 +39,6 @@ function reducer(state = initialState, action) {
     //uncompleted todos
     if (action.payload.id === 2) {
       const filteredTodos = state._todos.filter((todo) => !todo.completed);
-      console.log(filteredTodos);
       return {
         ...state,
         selectedFilterButton: action.payload,

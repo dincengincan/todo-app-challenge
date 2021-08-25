@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { createElement } from 'react';
 
 export const StyledText = styled(
-  ({ tagName, color, fontSize, children, ...props }) =>
-    createElement(tagName, [props], [children])
+  ({ tagName, textAlign, margin, fontSize, color, children, ...props }) =>
+    createElement(tagName, props, children)
 )`
-  font-size: ${({ fontSize }) => `${fontSize}px`};
+  font-size: ${({ fontSize }) => `${fontSize}`};
   color: ${({ color }) => `${color}`};
+  margin: ${({ margin }) => `${margin}`};
+  text-align: ${({ textAlign }) => `${textAlign}`};
 `;

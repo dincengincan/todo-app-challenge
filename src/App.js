@@ -11,6 +11,7 @@ import { FETCH_URL } from './constants/general';
 import { ACTIONS } from './store';
 import Modal from './components/modal/Modal';
 import EditTodoContent from './components/edit-todo-content/EditTodoContent';
+import Text from './components/text/Text';
 
 function App() {
   const dispatch = useDispatch();
@@ -107,21 +108,6 @@ function App() {
       console.log(error);
     }
   };
-  //TODO: Multiple deletion is not working
-  const handleTodoReset = async () => {
-    const settings = {
-      method: 'DELETE',
-    };
-    try {
-      const fetchResponse = await fetch(`${FETCH_URL}/${3},${5}`, settings);
-      const data = await fetchResponse.json();
-      if (data) {
-        fetchTodos();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const fetchTodos = useCallback(async () => {
     try {
@@ -143,7 +129,15 @@ function App() {
   return (
     <>
       <Layout>
-        <AddTodo addTodo={handleTodoAdd} onReset={handleTodoReset} />
+        <Text
+          margin="40px 0"
+          textAlign="center"
+          color="#cecece"
+          fontSize="70px"
+          text="TODO"
+          tagName="p"
+        />
+        <AddTodo addTodo={handleTodoAdd} />
         <TodoList
           onTodoEdit={handleModalShow}
           onTodoComplete={handleTodoComplete}

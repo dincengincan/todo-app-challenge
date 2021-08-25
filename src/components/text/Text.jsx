@@ -1,8 +1,15 @@
 import { StyledText } from './Text.styles';
 
-const Text = ({ tagName, fontSize, color, text }) => {
+const Text = ({ textAlign, margin, tagName, fontSize, color, text, props }) => {
   return (
-    <StyledText tagName={tagName} fontSize={fontSize} color={color}>
+    <StyledText
+      margin={margin}
+      textAlign={textAlign}
+      tagName={tagName}
+      fontSize={fontSize}
+      color={color}
+      {...props}
+    >
       {text}
     </StyledText>
   );
