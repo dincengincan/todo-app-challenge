@@ -15,6 +15,8 @@ export const StyledTodo = styled.div`
 
   ${({ overline }) =>
     overline && 'text-decoration: line-through; opacity: 0.35;'}
+
+  ${({ error }) => error && 'opacity: 0.35; color: red'}
 `;
 
 export const Container = styled.div`

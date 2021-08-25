@@ -22,7 +22,7 @@ const TodoList = ({ onTodoEdit, onTodoComplete, onTodoRemove }) => {
           todo={todo}
           key={todo.id}
         >
-          <Text color="red" tagName="p" text={todo.label} />
+          <Text tagName="p" text={todo.label} />
           <Text tagName="label" text={todo.deadline} />
         </TodoItem>
       ))}
