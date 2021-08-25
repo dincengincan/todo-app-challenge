@@ -5,7 +5,7 @@ export const ACTIONS = {
 };
 
 const initialState = {
-  todos: [{ label: 'asaa' }],
+  todos: [],
 };
 
 function reducer(state = initialState, action) {
